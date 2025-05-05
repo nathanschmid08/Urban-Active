@@ -36,15 +36,26 @@
             display: flex;
         }
 
+        /* Modified: White stickman positioning and transparency */
+        .white-stickman {
+            filter: invert(1);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.1;
+            z-index: 0;
+            max-width: 80%;
+            max-height: 80%;
+        }
+
         /* Split layout - fixed 50/50 split */
         .content-section {
             width: 50%;
             height: 100vh;
             padding: 40px;
             background-color: var(--primary);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            display: block;
             position: relative;
             overflow: hidden;
         }
@@ -122,6 +133,11 @@
         .content-main {
             z-index: 1;
             margin-bottom: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
         }
 
         .content-title {
@@ -397,18 +413,23 @@
             text-decoration: underline;
         }
 
+        /* Modified: Tabs matching button width */
         .tab-container {
             display: flex;
             margin-bottom: 24px;
             background-color: rgba(255, 255, 255, 0.05);
             border-radius: 8px;
             padding: 3px;
+            width: 100%; /* Full width to match buttons */
+            max-width: 450px; /* Match form container max-width */
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .tab {
             flex: 1;
             text-align: center;
-            padding: 10px;
+            padding: 8px; /* Reduced padding */
             font-size: 14px;
             font-weight: 600;
             cursor: pointer;
@@ -485,8 +506,11 @@
     <section class="content-section">
         <div class="blur-circle circle-1"></div>
         <div class="blur-circle circle-2"></div>
+        
+        <!-- Modified: Moved stickman to background -->
+        <img class="white-stickman" src="src/running.webp">
 
-        <div class="brand">
+        <div class="brand" style="position: absolute; top: 40px; left: 40px; z-index: 2;">
             <div class="brand-logo">
                 <div class="logo-circle">
                     <i class="fas fa-bolt"></i>
@@ -504,33 +528,13 @@
                 Learn More <i class="fas fa-arrow-right"></i>
             </div>
         </div>
-
-        <div class="activity-icons">
-            <div class="activity-icon">
-                <i class="fas fa-person-running"></i>
-            </div>
-            <div class="activity-icon">
-                <i class="fas fa-person-walking"></i>
-            </div>
-            <div class="activity-icon">
-                <i class="fas fa-person-biking"></i>
-            </div>
-            <div class="activity-icon">
-                <i class="fas fa-dumbbell"></i>
-            </div>
-            <div class="activity-icon">
-                <i class="fas fa-person-hiking"></i>
-            </div>
-            <div class="activity-icon">
-                <i class="fas fa-person-swimming"></i>
-            </div>
-        </div>
     </section>
 
     <!-- Right Column - Form -->
     <section class="form-section">
+        <!-- Modified: Shorter tabs -->
         <div class="tab-container">
-            <div class="tab active" id="login-tab">Login</div>
+            <div class="tab active" id="login-tab">Log In</div>
             <div class="tab" id="signup-tab">Sign Up</div>
         </div>
 
